@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Zafar - Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #3b82f6;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #60a5fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-intro {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+
+        .video-placeholder {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: rgba(15, 15, 30, 0.9);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #3b82f6;
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">RZ</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="accomplishments.html">Accomplishments</a></li>
+                <li><a href="interests.html">Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h1 class="fade-in">My Projects</h1>
+            <p class="page-intro fade-in">Building AI systems, games, and innovative solutions to real-world problems.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🤖</div>
+                    <h3>Speakar AI Chatbot</h3>
+                    <p>An AI-powered chatbot that answers restaurant phone calls and helps customers place orders. Speakar can learn the full menu of any restaurant when trained and can recommend items based on customer preferences.</p>
+                    <p><strong>What I Learned:</strong> This project taught me about APIs, natural language interaction, and practical problem-solving with AI in real-world business applications.</p>
+                    <div>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">AI/ML</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">APIs</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">🎮</div>
+                    <h3>Goblin Run</h3>
+                    <p>A 2D platformer created in Unreal Engine 5 featuring movement mechanics, jumping, and obstacle design. This project represents my first complete game development experience, where I experimented with game mechanics and level design.</p>
+                    <div class="video-placeholder">
+                        📹 Gameplay Video Demo<br>
+                        <small>(Upload your Goblin Run.mp4 file here)</small>
+                    </div>
+                    <div>
+                        <span class="project-tag">Unreal Engine 5</span>
+                        <span class="project-tag">C++</span>
+                        <span class="project-tag">Game Dev</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🕹️</div>
+                    <h3>2D Runner Game</h3>
+                    <p>An interactive 2D runner game built with Scratch, showcasing game development fundamentals, logic design, and creative problem-solving.</p>
+                    <div class="video-placeholder">
+                        🎯 Playable Scratch Game<br>
+                        <small>(Add your Scratch embed link here)</small>
+                    </div>
+                    <div>
+                        <span class="project-tag">Scratch</span>
+                        <span class="project-tag">Game Design</span>
+                        <span class="project-tag">Logic</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">🖥️</div>
+                    <h3>Custom PC Build</h3>
+                    <p>Built a custom PC from the ground up, selecting and assembling hardware components to optimize performance for coding, game development, and AI projects.</p>
+                    <p><strong>What I Learned:</strong> Hardware compatibility, system troubleshooting, optimization techniques, and understanding how software interacts with hardware at a fundamental level.</p>
+                    <div>
+                        <span class="project-tag">Hardware</span>
+                        <span class="project-tag">Systems</span>
+                        <span class="project-tag">Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rayan Zafar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:rmzbuilt@gmail.com">📧 rmzbuilt@gmail.com</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Jersey City, NJ • 8th Grade Student • Aspiring AI Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

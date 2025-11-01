@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Zafar - Accomplishments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #3b82f6;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #60a5fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-intro {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .accomplishments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .accomplishment-card {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .accomplishment-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .accomplishment-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .accomplishment-card h3 {
+            font-size: 1.6rem;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .accomplishment-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: rgba(15, 15, 30, 0.9);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #3b82f6;
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .accomplishments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">RZ</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="accomplishments.html" class="active">Accomplishments</a></li>
+                <li><a href="interests.html">Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h1 class="fade-in">Accomplishments</h1>
+            <p class="page-intro fade-in">Recognition and achievements beyond coding and technology.</p>
+            
+            <div class="accomplishments-grid">
+                <div class="accomplishment-card">
+                    <div class="accomplishment-icon">🏆</div>
+                    <h3>Scripps Spelling Bee Champion</h3>
+                    <p>Participated in the Scripps Spelling Bee multiple times, demonstrating exceptional vocabulary mastery and performance under pressure.</p>
+                    <p style="margin-top: 15px;"><strong>Achievements:</strong></p>
+                    <ul style="color: #cbd5e1; margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>Won at the school level 3 times</li>
+                        <li>Placed 3rd in the entire county</li>
+                        <li>Placed 4th in the entire county</li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <span class="achievement-badge">School Champion × 3</span>
+                    </div>
+                </div>
+                
+                <div class="accomplishment-card">
+                    <div class="accomplishment-icon">🏛️</div>
+                    <h3>Women's Suffrage History Project</h3>
+                    <p>Won the Women's Suffrage History Month competition, showcasing exceptional research skills, historical understanding, and presentation abilities.</p>
+                    <p style="margin-top: 15px;"><strong>Recognition:</strong> Presented my project at the Museum of Jersey City History (Van Wagenen House), sharing my research with the community and demonstrating public speaking skills.</p>
+                    <div style="text-align: center;">
+                        <span class="achievement-badge">Competition Winner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rayan Zafar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:rmzbuilt@gmail.com">📧 rmzbuilt@gmail.com</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Jersey City, NJ • 8th Grade Student • Aspiring AI Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.accomplishment-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

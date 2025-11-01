@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Zafar - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #3b82f6;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #60a5fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .contact-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #f1f5f9;
+        }
+
+        .about-content {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: rgba(15, 15, 30, 0.9);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #3b82f6;
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">RZ</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="accomplishments.html">Accomplishments</a></li>
+                <li><a href="interests.html">Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="fade-in">
+        <div class="container">
+            <h1>Rayan Zafar</h1>
+            <p class="subtitle">AI Developer • Software Engineer • Game Developer</p>
+            <p class="subtitle" style="font-size: 1.1rem; margin-top: -15px;">8th Grade Student at Explore Middle School</p>
+            <a href="mailto:rmzbuilt@gmail.com" class="contact-btn">Get In Touch</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content fade-in">
+                <p>Hi, I'm Rayan Zafar. I was born in Islamabad, Pakistan, and moved to the U.S. before the age of two. I've been living in Jersey City, NJ ever since with my younger sister and brother. Currently, I'm an 8th-grade student at Explore Middle School with a passion for Artificial Intelligence and Software Development.</p>
+                
+                <p>I've always been fascinated by the potential of artificial intelligence to transform how we live our daily lives. Whether it's building a conversational AI bot or designing a more complex intelligent system, I want to test the limits of what can be done with AI and see just how many people I can help.</p>
+                
+                <p>My journey into coding started when I watched my dad, a software engineer, working late one night. I sat down next to him and he taught me what some of the functions meant. Ever since then, I've been fascinated by how lines of code could create something entirely new. That curiosity led me to learn Python, JavaScript, HTML, and more, and I haven't stopped building since.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rayan Zafar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:rmzbuilt@gmail.com">📧 rmzbuilt@gmail.com</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Jersey City, NJ • 8th Grade Student • Aspiring AI Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Zafar - Skills</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #3b82f6;
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #60a5fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-intro {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .skill-level {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #60a5fa;
+        }
+
+        footer {
+            background: rgba(15, 15, 30, 0.9);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #3b82f6;
+            margin-top: 80px;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 30, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">RZ</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="accomplishments.html">Accomplishments</a></li>
+                <li><a href="interests.html">Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h1 class="fade-in">Technical Skills</h1>
+            <p class="page-intro fade-in">A comprehensive overview of my programming languages, frameworks, and technical expertise.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>AI development, machine learning, backend systems, and scientific computing</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript/Java</h3>
+                    <p>Web applications, interactive features, and full-stack development</p>
+                    <span class="skill-level">Intermediate-Advanced</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>C++</h3>
+                    <p>Game development, performance-critical applications, and systems programming</p>
+                    <span class="skill-level">Intermediate-Advanced</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎮</div>
+                    <h3>C#</h3>
+                    <p>Unity game development, .NET applications, and object-oriented programming</p>
+                    <span class="skill-level">Intermediate-Advanced</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML/CSS</h3>
+                    <p>Modern web design, responsive layouts, and user interface development</p>
+                    <span class="skill-level">Proficient</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Machine Learning</h3>
+                    <p>Python ML frameworks, model training, and AI implementation</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Unreal Engine 5</h3>
+                    <p>3D game development, level design, and interactive experiences</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🖥️</div>
+                    <h3>Hardware & Systems</h3>
+                    <p>PC building, optimization, troubleshooting, and hardware-software integration</p>
+                    <span class="skill-level">Experienced</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rayan Zafar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:rmzbuilt@gmail.com">📧 rmzbuilt@gmail.com</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Jersey City, NJ • 8th Grade Student • Aspiring AI Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.skill-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
